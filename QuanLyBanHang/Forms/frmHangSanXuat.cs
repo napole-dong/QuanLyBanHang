@@ -44,7 +44,7 @@ namespace QuanLyBanHang.Forms
             bindingSource.DataSource = lsp;
 
             txtTenHangSanXuat.DataBindings.Clear();
-            txtTenHangSanXuat.DataBindings.Add("Text", bindingSource, "TenLoai", false, DataSourceUpdateMode.Never);
+            txtTenHangSanXuat.DataBindings.Add("Text", bindingSource, "TenHangSanXuat", false, DataSourceUpdateMode.Never);
 
             dataGridView.DataSource = lsp;
         }

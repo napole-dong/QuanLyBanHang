@@ -24,7 +24,7 @@ namespace QuanLyBanHang.Forms
         private void BatTatChucNang(bool giaTri)
         {
             btnLuu.Enabled = giaTri;
-            btnHuyBo.Enabled = giaTri;
+            btnHuy.Enabled = giaTri;
             txtTenLoai.Enabled = giaTri;
 
             btnThem.Enabled = !giaTri;
