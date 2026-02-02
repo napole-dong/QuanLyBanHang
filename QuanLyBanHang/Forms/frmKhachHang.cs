@@ -45,6 +45,10 @@ namespace QuanLyBanHang.Forms
             txtHoVaTen.DataBindings.Clear();
             txtHoVaTen.DataBindings.Add("Text", bindingSource, "HoVaTen", false, DataSourceUpdateMode.Never);
             // Tương tự cho txtDienThoai và txtDiaChi
+            txtDienThoai.DataBindings.Clear();
+            txtDienThoai.DataBindings.Add("Text", bindingSource, "DienThoai", false, DataSourceUpdateMode.Never);
+            txtDiaChi.DataBindings.Clear();
+            txtDiaChi.DataBindings.Add("Text", bindingSource, "DiaChi", false, DataSourceUpdateMode.Never);
             dataGridView.DataSource = bindingSource;
         }
 
