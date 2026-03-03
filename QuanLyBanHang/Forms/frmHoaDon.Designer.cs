@@ -28,6 +28,12 @@ namespace QuanLyBanHang.Forms
         {
             gbDanhSachHoaDon = new GroupBox();
             dgvHoaDon = new DataGridView();
+            ID = new DataGridViewTextBoxColumn();
+            HoVaTenNhanVien = new DataGridViewTextBoxColumn();
+            HoVaTenKhachHang = new DataGridViewTextBoxColumn();
+            NgayLap = new DataGridViewTextBoxColumn();
+            TongTienHoaDon = new DataGridViewTextBoxColumn();
+            XemChiTiet = new DataGridViewLinkColumn();
             btnLapHoaDon = new Button();
             btnInHoaDon = new Button();
             btnSua = new Button();
@@ -35,12 +41,7 @@ namespace QuanLyBanHang.Forms
             btnThoat = new Button();
             btnTimKiem = new Button();
             btnXuat = new Button();
-            ID = new DataGridViewTextBoxColumn();
-            HoVaTenNhanVien = new DataGridViewTextBoxColumn();
-            HoVaTenKhachHang = new DataGridViewTextBoxColumn();
-            NgayLap = new DataGridViewTextBoxColumn();
-            TongTienHoaDon = new DataGridViewTextBoxColumn();
-            XemChiTiet = new DataGridViewLinkColumn();
+            btnNhap = new Button();
             gbDanhSachHoaDon.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvHoaDon).BeginInit();
             SuspendLayout();
@@ -49,11 +50,9 @@ namespace QuanLyBanHang.Forms
             // 
             gbDanhSachHoaDon.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             gbDanhSachHoaDon.Controls.Add(dgvHoaDon);
-            gbDanhSachHoaDon.Location = new Point(14, 16);
-            gbDanhSachHoaDon.Margin = new Padding(3, 4, 3, 4);
+            gbDanhSachHoaDon.Location = new Point(12, 12);
             gbDanhSachHoaDon.Name = "gbDanhSachHoaDon";
-            gbDanhSachHoaDon.Padding = new Padding(3, 4, 3, 4);
-            gbDanhSachHoaDon.Size = new Size(1097, 427);
+            gbDanhSachHoaDon.Size = new Size(960, 320);
             gbDanhSachHoaDon.TabIndex = 0;
             gbDanhSachHoaDon.TabStop = false;
             gbDanhSachHoaDon.Text = "Danh sách hóa đơn";
@@ -66,90 +65,22 @@ namespace QuanLyBanHang.Forms
             dgvHoaDon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvHoaDon.Columns.AddRange(new DataGridViewColumn[] { ID, HoVaTenNhanVien, HoVaTenKhachHang, NgayLap, TongTienHoaDon, XemChiTiet });
             dgvHoaDon.Dock = DockStyle.Fill;
-            dgvHoaDon.Location = new Point(3, 24);
-            dgvHoaDon.Margin = new Padding(3, 4, 3, 4);
+            dgvHoaDon.Location = new Point(3, 19);
             dgvHoaDon.MultiSelect = false;
             dgvHoaDon.Name = "dgvHoaDon";
             dgvHoaDon.ReadOnly = true;
             dgvHoaDon.RowHeadersWidth = 51;
             dgvHoaDon.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvHoaDon.Size = new Size(1091, 399);
+            dgvHoaDon.Size = new Size(954, 298);
             dgvHoaDon.TabIndex = 0;
-            // 
-            // btnLapHoaDon
-            // 
-            btnLapHoaDon.Location = new Point(14, 451);
-            btnLapHoaDon.Margin = new Padding(3, 4, 3, 4);
-            btnLapHoaDon.Name = "btnLapHoaDon";
-            btnLapHoaDon.Size = new Size(154, 40);
-            btnLapHoaDon.TabIndex = 1;
-            btnLapHoaDon.Text = "Lập hóa đơn mới...";
-            btnLapHoaDon.Click += btnLapHoaDon_Click;
-            // 
-            // btnInHoaDon
-            // 
-            btnInHoaDon.Location = new Point(174, 451);
-            btnInHoaDon.Margin = new Padding(3, 4, 3, 4);
-            btnInHoaDon.Name = "btnInHoaDon";
-            btnInHoaDon.Size = new Size(126, 40);
-            btnInHoaDon.TabIndex = 2;
-            btnInHoaDon.Text = "In hóa đơn...";
-            // 
-            // btnSua
-            // 
-            btnSua.Location = new Point(306, 451);
-            btnSua.Margin = new Padding(3, 4, 3, 4);
-            btnSua.Name = "btnSua";
-            btnSua.Size = new Size(103, 40);
-            btnSua.TabIndex = 3;
-            btnSua.Text = "Sửa...";
-            btnSua.Click += btnSua_Click;
-            // 
-            // btnXoa
-            // 
-            btnXoa.Location = new Point(415, 451);
-            btnXoa.Margin = new Padding(3, 4, 3, 4);
-            btnXoa.Name = "btnXoa";
-            btnXoa.Size = new Size(103, 40);
-            btnXoa.TabIndex = 4;
-            btnXoa.Text = "Xóa";
-            btnXoa.Click += btnXoa_Click;
-            // 
-            // btnThoat
-            // 
-            btnThoat.Location = new Point(524, 451);
-            btnThoat.Margin = new Padding(3, 4, 3, 4);
-            btnThoat.Name = "btnThoat";
-            btnThoat.Size = new Size(103, 40);
-            btnThoat.TabIndex = 5;
-            btnThoat.Text = "Thoát";
-            btnThoat.Click += btnThoat_Click;
-            // 
-            // btnTimKiem
-            // 
-            btnTimKiem.Location = new Point(743, 451);
-            btnTimKiem.Margin = new Padding(3, 4, 3, 4);
-            btnTimKiem.Name = "btnTimKiem";
-            btnTimKiem.Size = new Size(126, 40);
-            btnTimKiem.TabIndex = 6;
-            btnTimKiem.Text = "Tìm kiếm...";
-            // 
-            // btnXuat
-            // 
-            btnXuat.Location = new Point(875, 451);
-            btnXuat.Margin = new Padding(3, 4, 3, 4);
-            btnXuat.Name = "btnXuat";
-            btnXuat.Size = new Size(126, 40);
-            btnXuat.TabIndex = 7;
-            btnXuat.Text = "Xuất Excel...";
             // 
             // ID
             // 
+            ID.DataPropertyName = "ID";
             ID.HeaderText = "ID";
             ID.MinimumWidth = 6;
             ID.Name = "ID";
             ID.ReadOnly = true;
-            ID.DataPropertyName = "ID";
             // 
             // HoVaTenNhanVien
             // 
@@ -170,7 +101,6 @@ namespace QuanLyBanHang.Forms
             // NgayLap
             // 
             NgayLap.DataPropertyName = "NgayLap";
-            NgayLap.DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleCenter, Format = "dd/MM/yyyy" };
             NgayLap.HeaderText = "Ngày lập";
             NgayLap.MinimumWidth = 6;
             NgayLap.Name = "NgayLap";
@@ -179,7 +109,6 @@ namespace QuanLyBanHang.Forms
             // TongTienHoaDon
             // 
             TongTienHoaDon.DataPropertyName = "TongTienHoaDon";
-            TongTienHoaDon.DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleRight, Font = new Font("Segoe UI", 9F, FontStyle.Bold), ForeColor = Color.Blue, Format = "N0" };
             TongTienHoaDon.HeaderText = "Tổng tiền";
             TongTienHoaDon.MinimumWidth = 6;
             TongTienHoaDon.Name = "TongTienHoaDon";
@@ -188,17 +117,87 @@ namespace QuanLyBanHang.Forms
             // XemChiTiet
             // 
             XemChiTiet.DataPropertyName = "XemChiTiet";
-            XemChiTiet.DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleCenter };
             XemChiTiet.HeaderText = "Chi tiết";
             XemChiTiet.MinimumWidth = 6;
             XemChiTiet.Name = "XemChiTiet";
             XemChiTiet.ReadOnly = true;
             // 
+            // btnLapHoaDon
+            // 
+            btnLapHoaDon.Location = new Point(12, 338);
+            btnLapHoaDon.Name = "btnLapHoaDon";
+            btnLapHoaDon.Size = new Size(135, 30);
+            btnLapHoaDon.TabIndex = 1;
+            btnLapHoaDon.Text = "Lập hóa đơn mới...";
+            btnLapHoaDon.Click += btnLapHoaDon_Click;
+            // 
+            // btnInHoaDon
+            // 
+            btnInHoaDon.Location = new Point(152, 338);
+            btnInHoaDon.Name = "btnInHoaDon";
+            btnInHoaDon.Size = new Size(110, 30);
+            btnInHoaDon.TabIndex = 2;
+            btnInHoaDon.Text = "In hóa đơn...";
+            // 
+            // btnSua
+            // 
+            btnSua.Location = new Point(268, 338);
+            btnSua.Name = "btnSua";
+            btnSua.Size = new Size(90, 30);
+            btnSua.TabIndex = 3;
+            btnSua.Text = "Sửa...";
+            btnSua.Click += btnSua_Click;
+            // 
+            // btnXoa
+            // 
+            btnXoa.Location = new Point(363, 338);
+            btnXoa.Name = "btnXoa";
+            btnXoa.Size = new Size(90, 30);
+            btnXoa.TabIndex = 4;
+            btnXoa.Text = "Xóa";
+            btnXoa.Click += btnXoa_Click;
+            // 
+            // btnThoat
+            // 
+            btnThoat.Location = new Point(458, 338);
+            btnThoat.Name = "btnThoat";
+            btnThoat.Size = new Size(90, 30);
+            btnThoat.TabIndex = 5;
+            btnThoat.Text = "Thoát";
+            btnThoat.Click += btnThoat_Click;
+            // 
+            // btnTimKiem
+            // 
+            btnTimKiem.Location = new Point(650, 338);
+            btnTimKiem.Name = "btnTimKiem";
+            btnTimKiem.Size = new Size(110, 30);
+            btnTimKiem.TabIndex = 6;
+            btnTimKiem.Text = "Tìm kiếm...";
+            // 
+            // btnXuat
+            // 
+            btnXuat.Location = new Point(766, 338);
+            btnXuat.Name = "btnXuat";
+            btnXuat.Size = new Size(110, 30);
+            btnXuat.TabIndex = 7;
+            btnXuat.Text = "Xuất Excel...";
+            btnXuat.Click += btnXuat_Click;
+            // 
+            // btnNhap
+            // 
+            btnNhap.Location = new Point(554, 335);
+            btnNhap.Name = "btnNhap";
+            btnNhap.Size = new Size(90, 30);
+            btnNhap.TabIndex = 8;
+            btnNhap.Text = "Nhap";
+            btnNhap.Click += btnNhap_Click;
+            // 
             // frmHoaDon
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1125, 508);
+            ClientSize = new Size(984, 381);
+            Controls.Add(btnNhap);
             Controls.Add(gbDanhSachHoaDon);
             Controls.Add(btnLapHoaDon);
             Controls.Add(btnInHoaDon);
@@ -207,7 +206,6 @@ namespace QuanLyBanHang.Forms
             Controls.Add(btnThoat);
             Controls.Add(btnTimKiem);
             Controls.Add(btnXuat);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "frmHoaDon";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Hóa đơn";
@@ -223,5 +221,6 @@ namespace QuanLyBanHang.Forms
         private DataGridViewTextBoxColumn NgayLap;
         private DataGridViewTextBoxColumn TongTienHoaDon;
         private DataGridViewLinkColumn XemChiTiet;
+        private Button btnNhap;
     }
 }

@@ -29,8 +29,12 @@
         private void InitializeComponent()
         {
             dataGridView = new DataGridView();
+            ID = new DataGridViewTextBoxColumn();
+            TenLoaiSanPham = new DataGridViewTextBoxColumn();
             gbDanhSachLoai = new GroupBox();
             groupBox = new GroupBox();
+            btnXuat = new Button();
+            btnNhap = new Button();
             txtTenLoai = new TextBox();
             btnLuu = new Button();
             btnThoat = new Button();
@@ -39,8 +43,6 @@
             btnXoa = new Button();
             btnThem = new Button();
             lbTenLoai = new Label();
-            ID = new DataGridViewTextBoxColumn();
-            TenLoaiSanPham = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             gbDanhSachLoai.SuspendLayout();
             groupBox.SuspendLayout();
@@ -61,6 +63,16 @@
             dataGridView.Size = new Size(978, 346);
             dataGridView.TabIndex = 0;
             // 
+            // ID
+            // 
+            ID.HeaderText = "ID";
+            ID.Name = "ID";
+            // 
+            // TenLoaiSanPham
+            // 
+            TenLoaiSanPham.HeaderText = "Ten Loai San Pham";
+            TenLoaiSanPham.Name = "TenLoaiSanPham";
+            // 
             // gbDanhSachLoai
             // 
             gbDanhSachLoai.Controls.Add(dataGridView);
@@ -73,6 +85,8 @@
             // 
             // groupBox
             // 
+            groupBox.Controls.Add(btnXuat);
+            groupBox.Controls.Add(btnNhap);
             groupBox.Controls.Add(txtTenLoai);
             groupBox.Controls.Add(btnLuu);
             groupBox.Controls.Add(btnThoat);
@@ -88,6 +102,26 @@
             groupBox.TabStop = false;
             groupBox.Text = "Thong Tin Loai San Pham";
             // 
+            // btnXuat
+            // 
+            btnXuat.Location = new Point(862, 104);
+            btnXuat.Name = "btnXuat";
+            btnXuat.Size = new Size(75, 23);
+            btnXuat.TabIndex = 8;
+            btnXuat.Text = "Xuat";
+            btnXuat.UseVisualStyleBackColor = true;
+            btnXuat.Click += btnXuat_Click;
+            // 
+            // btnNhap
+            // 
+            btnNhap.Location = new Point(767, 104);
+            btnNhap.Name = "btnNhap";
+            btnNhap.Size = new Size(75, 23);
+            btnNhap.TabIndex = 7;
+            btnNhap.Text = "Nhap";
+            btnNhap.UseVisualStyleBackColor = true;
+            btnNhap.Click += btnNhap_Click;
+            // 
             // txtTenLoai
             // 
             txtTenLoai.Location = new Point(176, 61);
@@ -97,7 +131,7 @@
             // 
             // btnLuu
             // 
-            btnLuu.Location = new Point(862, 104);
+            btnLuu.Location = new Point(669, 104);
             btnLuu.Name = "btnLuu";
             btnLuu.Size = new Size(75, 23);
             btnLuu.TabIndex = 6;
@@ -106,7 +140,7 @@
             // 
             // btnThoat
             // 
-            btnThoat.Location = new Point(733, 104);
+            btnThoat.Location = new Point(567, 104);
             btnThoat.Name = "btnThoat";
             btnThoat.Size = new Size(75, 23);
             btnThoat.TabIndex = 5;
@@ -115,7 +149,7 @@
             // 
             // btnHuy
             // 
-            btnHuy.Location = new Point(589, 104);
+            btnHuy.Location = new Point(475, 104);
             btnHuy.Name = "btnHuy";
             btnHuy.Size = new Size(75, 23);
             btnHuy.TabIndex = 4;
@@ -124,7 +158,7 @@
             // 
             // btnSua
             // 
-            btnSua.Location = new Point(443, 104);
+            btnSua.Location = new Point(372, 104);
             btnSua.Name = "btnSua";
             btnSua.Size = new Size(75, 23);
             btnSua.TabIndex = 3;
@@ -133,7 +167,7 @@
             // 
             // btnXoa
             // 
-            btnXoa.Location = new Point(309, 104);
+            btnXoa.Location = new Point(271, 104);
             btnXoa.Name = "btnXoa";
             btnXoa.Size = new Size(75, 23);
             btnXoa.TabIndex = 2;
@@ -157,16 +191,6 @@
             lbTenLoai.Size = new Size(106, 15);
             lbTenLoai.TabIndex = 0;
             lbTenLoai.Text = "Ten Loai San Pham";
-            // 
-            // ID
-            // 
-            ID.HeaderText = "ID";
-            ID.Name = "ID";
-            // 
-            // TenLoaiSanPham
-            // 
-            TenLoaiSanPham.HeaderText = "Ten Loai San Pham";
-            TenLoaiSanPham.Name = "TenLoaiSanPham";
             // 
             // frmLoaiSanPham
             // 
@@ -202,5 +226,7 @@
         private Label lbTenLoai;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn TenLoaiSanPham;
+        private Button btnXuat;
+        private Button btnNhap;
     }
 }

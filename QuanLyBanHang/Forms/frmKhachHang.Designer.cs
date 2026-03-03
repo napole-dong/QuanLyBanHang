@@ -132,6 +132,7 @@
             btnXuat.TabIndex = 13;
             btnXuat.Text = "Xuat";
             btnXuat.UseVisualStyleBackColor = true;
+            btnXuat.Click += btnXuat_Click;
             // 
             // btnNhap
             // 
@@ -141,6 +142,7 @@
             btnNhap.TabIndex = 12;
             btnNhap.Text = "Nhap";
             btnNhap.UseVisualStyleBackColor = true;
+            btnNhap.Click += btnNhap_Click;
             // 
             // btnTimKiem
             // 

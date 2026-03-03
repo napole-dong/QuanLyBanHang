@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using ClosedXML.Excel;
 using QuanLyBanHang.Data;
 
 namespace QuanLyBanHang.Forms
@@ -81,6 +83,145 @@ namespace QuanLyBanHang.Forms
         private void btnThoat_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnXuat_Click(object sender, EventArgs e)
+        {
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Nhập dữ liệu Hóa đơn";
+            openFileDialog.Filter = "Excel Files|*.xlsx";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    using (XLWorkbook workbook = new XLWorkbook(openFileDialog.FileName))
+                    {
+                        // ===== KIỂM TRA SHEET =====
+                        if (!workbook.Worksheets.Contains("HoaDon") ||
+                            !workbook.Worksheets.Contains("HoaDon_ChiTiet"))
+                        {
+                            MessageBox.Show("File không đúng định dạng (thiếu sheet).");
+                            return;
+                        }
+
+                        // ===== ĐỌC SHEET HOADON =====
+                        var sheetHoaDon = workbook.Worksheet("HoaDon");
+
+                        foreach (IXLRow row in sheetHoaDon.RowsUsed().Skip(1))
+                        {
+                            HoaDon hd = new HoaDon();
+
+                            hd.NhanVienID = int.Parse(row.Cell(2).Value.ToString());
+                            hd.KhachHangID = int.Parse(row.Cell(3).Value.ToString());
+                            hd.NgayLap = DateTime.Parse(row.Cell(4).Value.ToString());
+                            hd.GhiChuHoaDon = row.Cell(5).Value.ToString();
+
+                            context.HoaDon.Add(hd);
+                        }
+
+                        context.SaveChanges();
+
+
+                        // ===== ĐỌC SHEET HOADON_CHITIET =====
+                        var sheetChiTiet = workbook.Worksheet("HoaDon_ChiTiet");
+
+                        foreach (IXLRow row in sheetChiTiet.RowsUsed().Skip(1))
+                        {
+                            HoaDon_ChiTiet ct = new HoaDon_ChiTiet();
+
+                            ct.HoaDonID = int.Parse(row.Cell(2).Value.ToString());
+                            ct.SanPhamID = int.Parse(row.Cell(3).Value.ToString());
+                            ct.SoLuongBan = short.Parse(row.Cell(4).Value.ToString());
+                            ct.DonGiaBan = int.Parse(row.Cell(5).Value.ToString());
+
+                            context.HoaDon_ChiTiet.Add(ct);
+                        }
+
+                        context.SaveChanges();
+
+                        MessageBox.Show("Nhập dữ liệu thành công!",
+                            "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        frmHoaDon_Load(sender, e);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Lỗi",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnNhap_Click(object sender, EventArgs e)
+        {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Title = "Nhập dữ liệu Hóa đơn";
+                openFileDialog.Filter = "Excel Files|*.xlsx";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        using (XLWorkbook workbook = new XLWorkbook(openFileDialog.FileName))
+                        {
+                            // ===== KIỂM TRA SHEET =====
+                            if (!workbook.Worksheets.Contains("HoaDon") ||
+                                !workbook.Worksheets.Contains("HoaDon_ChiTiet"))
+                            {
+                                MessageBox.Show("File không đúng định dạng (thiếu sheet).");
+                                return;
+                            }
+
+                            // ===== ĐỌC SHEET HOADON =====
+                            var sheetHoaDon = workbook.Worksheet("HoaDon");
+
+                            foreach (IXLRow row in sheetHoaDon.RowsUsed().Skip(1))
+                            {
+                                HoaDon hd = new HoaDon();
+
+                                hd.NhanVienID = int.Parse(row.Cell(2).Value.ToString());
+                                hd.KhachHangID = int.Parse(row.Cell(3).Value.ToString());
+                                hd.NgayLap = DateTime.Parse(row.Cell(4).Value.ToString());
+                                hd.GhiChuHoaDon = row.Cell(5).Value.ToString();
+
+                                context.HoaDon.Add(hd);
+                            }
+
+                            context.SaveChanges();
+
+
+                            // ===== ĐỌC SHEET HOADON_CHITIET =====
+                            var sheetChiTiet = workbook.Worksheet("HoaDon_ChiTiet");
+
+                            foreach (IXLRow row in sheetChiTiet.RowsUsed().Skip(1))
+                            {
+                                HoaDon_ChiTiet ct = new HoaDon_ChiTiet();
+
+                                ct.HoaDonID = int.Parse(row.Cell(2).Value.ToString());
+                                ct.SanPhamID = int.Parse(row.Cell(3).Value.ToString());
+                                ct.SoLuongBan = short.Parse(row.Cell(4).Value.ToString());
+                                ct.DonGiaBan = int.Parse(row.Cell(5).Value.ToString());
+
+                                context.HoaDon_ChiTiet.Add(ct);
+                            }
+
+                            context.SaveChanges();
+
+                            MessageBox.Show("Nhập dữ liệu thành công!",
+                                "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            frmHoaDon_Load(sender, e);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Lỗi",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
         }
     }
 }
